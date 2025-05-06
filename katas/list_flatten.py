@@ -1,3 +1,5 @@
+main_list = []
+
 def flatten_list(nested_list):
     """
     Flattens a nested list into a single list of integers.
@@ -9,7 +11,24 @@ def flatten_list(nested_list):
         a flat list containing all integers from the nested structure
     """
     # hint: isinstance()
-    return []
+    global main_list
+    for i in range(len(nested_list)):
+        if isinstance(nested_list[i], list):
+            return_flat_list(nested_list[i])
+        else:
+            main_list.append(nested_list[i])
+
+    new_list = main_list
+    main_list = []
+    return new_list
+
+def return_flat_list(nested):
+    for i in range(len(nested)):
+        if isinstance(nested[i], list):
+            return_flat_list(nested[i])
+        else:
+            main_list.append(nested[i])
+
 
 
 if __name__ == '__main__':
