@@ -8,7 +8,14 @@ def count_words(sentence):
     Returns:
         the number of words in the sentence
     """
-    return 0
+    if sentence == " ":
+        return 0
+
+    counter = 1
+    for ch in sentence:
+        if ch == " ":
+            counter += 1
+    return counter
 
 
 if __name__ == '__main__':
