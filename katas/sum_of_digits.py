@@ -8,7 +8,12 @@ def sum_of_digits(input_str):
     Returns:
         the sum of all digits in the string
     """
-    return 0
+    result = 0
+    for char in input_str:
+        check = ord(char) # convert to ASCII
+        if 48 <= check <= 57:
+            result += (check - 48)
+    return result
 
 
 if __name__ == '__main__':
